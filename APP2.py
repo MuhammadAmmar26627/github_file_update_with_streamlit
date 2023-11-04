@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 if "df" not in st.session_state:
   if os.path.exists("rate.csv"):
       st.session_state["df"]=pd.read_csv("rate.csv")
