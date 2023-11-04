@@ -1,8 +1,12 @@
 import streamlit as st
 import pandas as pd
-# df=pd.read_csv("Rate.csv")
+if os.path.exists("rate.csv"):
 if "df" not in st.session_state:
-  st.session_state["df"]=pd.read_csv("Rate.csv")
+  if os.path.exists("rate.csv"):
+      st.session_state["df"]=pd.read_csv("rate.csv")
+  else:
+      st.session_state["df"]=pd.read_csv("Rate.csv")
+      df.to_csv("rate.csv",index=False)
 df=st.session_state["df"]
 
 form=st.sidebar.form("Rate Update")
@@ -19,7 +23,7 @@ submitted = form.form_submit_button("Submit")
 if submitted:
    try:
     df.loc[df.Machine_size ==m_size,Col]=Rate
-    df.to_csv("Rate.csv",index=False)
+    df.to_csv("rate.csv",index=False)
    except Exception as e:
      print(e)
 
@@ -32,7 +36,7 @@ submit = form1.form_submit_button("Submit")
 if submit:
    try:
     df.loc[:,Col]=Rate
-    df.to_csv("Rate.csv",index=False)
+    df.to_csv("rate.csv",index=False)
    except Exception as e:
      print(e)
 
