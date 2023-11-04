@@ -5,7 +5,7 @@ import pandas as pd
 # def load_data(file_name):
 #   return pd.read_csv(file_name)
 # df=load_data("Rate.csv")
-df=pd.read_csv(file_name)
+df=pd.read_csv("Rate.csv")
 
 form=st.sidebar.form("Rate Update")
 m_size=form.selectbox(
