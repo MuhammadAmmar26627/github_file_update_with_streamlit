@@ -1,10 +1,11 @@
 import streamlit as st
 import pandas as pd
-# df=pd.read_excel("rate_database.xlsx",sheet_name="Sheet1")
-@st.cache_data
-def load_data(file_name):
-  return pd.read_csv(file_name)
-df=load_data("Rate.csv")
+# # df=pd.read_excel("rate_database.xlsx",sheet_name="Sheet1")
+# @st.cache_data
+# def load_data(file_name):
+#   return pd.read_csv(file_name)
+# df=load_data("Rate.csv")
+df=pd.read_csv(file_name)
 
 form=st.sidebar.form("Rate Update")
 m_size=form.selectbox(
